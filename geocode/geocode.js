@@ -3,6 +3,8 @@ const request = require('request');
 
 let geocodeAddress = (address) => {
     let encodedAddress = encodeURIComponent(address);
+<<<<<<< HEAD
+=======
     
     return new Promise((resolve ,reject) => {
         request({
