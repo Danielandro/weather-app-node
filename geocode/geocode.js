@@ -3,10 +3,6 @@ const request = require('request');
 
 let geocodeAddress = (address) => {
     let encodedAddress = encodeURIComponent(address);
-<<<<<<< HEAD
-=======
-    let apiKey;
->>>>>>> 92a83ccd04931e10113884fd7ff7c6650d3c4622
     
     return new Promise((resolve ,reject) => {
         request({
