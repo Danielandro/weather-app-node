@@ -3,11 +3,10 @@ const request = require('request');
 
 let geocodeAddress = (address) => {
     let encodedAddress = encodeURIComponent(address);
-    let apiKey = 'AIzaSyCVkWwXtkDo6G6DfyDAoRvF-JgRjCppJ-Q';
     
     return new Promise((resolve ,reject) => {
         request({
-            url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}`,
+            url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${process.env.GOOGLE_GEOCODE_API_KEY}`,
             json: true
         }, (error, response, body) => {
 

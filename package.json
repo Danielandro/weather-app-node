@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^6.0.0",
     "request": "^2.87.0",
     "yargs": "^4.8.1"
   }
