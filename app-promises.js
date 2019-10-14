@@ -22,9 +22,9 @@ let geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${en
 
 axios(geocodeURL).then((response) => {
     // can't find address
-    if(response.data.status === 'ZERO_RESULTS'){
+    if (response.data.status === 'ZERO_RESULTS') {
         throw new Error('Unable to find that address');
-    }    
+    }
     let lat = response.data.results[0].geometry.location.lat;
     let lng = response.data.results[0].geometry.location.lng;
     let weatherURL = `https://api.darksky.net/forecast/${process.env.DARKSKY_KEY}/${lat},${lng}?units=uk2`;
@@ -33,21 +33,18 @@ axios(geocodeURL).then((response) => {
     console.log(response.data.results[0].formatted_address);
 
     return axios(weatherURL);
-   
-}).then((weatherResponse) => {    
+
+}).then((weatherResponse) => {
     let temperature = weatherResponse.data.currently.temperature;
     let apparentTemperature = weatherResponse.data.currently.apparentTemperature;
     console.log(`It's currently ${temperature}. It feels like ${apparentTemperature}.`);
 }).catch((e) => {
     // can't connect to API server
-    if(e.code === 'ECONNREFUSED'){
-        console.log('Unable to connect to API servers');        
-    }else{
+    if (e.code === 'ECONNREFUSED') {
+        console.log('Unable to connect to API servers');
+    } else {
         // console.log('ERROR---',e);
         console.log(e.message);
-        
-                
-    }
-    
-});
 
+    }
+});

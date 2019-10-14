@@ -17,15 +17,13 @@ const argv = yargs
     .argv;
 
 // call to Google Maps Geocode API    
-geocode.geocodeAddress(argv.a).then((location) => {           
-        console.log(location.address);
-// call to DarkSky API
-        return weather.getWeather(location.latitude, location.longitude);                             
-   
+geocode.geocodeAddress(argv.a).then((location) => {
+    console.log(location.address);
+    // call to DarkSky API
+    return weather.getWeather(location.latitude, location.longitude);
+
 }).then((weatherResults) => {
-    console.log(`It's currently ${weatherResults.temperature}. It feels like ${weatherResults.apparentTemperature}.`);  
+    console.log(`It's currently ${weatherResults.temperature}. It feels like ${weatherResults.apparentTemperature}.`);
 }).catch((errorMessage) => {
     console.log(errorMessage);
 });
-
-

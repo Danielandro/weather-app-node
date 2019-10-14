@@ -16,9 +16,8 @@ let getWeather = (lat, lng) => {
                 reject('Unable to fetch weather');
             }
         });
-    });    
+    });
 };
-
 
 
 module.exports.getWeather = getWeather;
